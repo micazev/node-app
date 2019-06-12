@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <title>YOGA APP - CADASTRO DE POSTURAS</title>
+</head>
+<body>
+    <section class="navbar flex">
+        <!-- bara de navegação -->
+        <div class="logo">Yoga App </div>
+        <nav class="menu">
+                <ul>
+                       <li><a href="#cad">Cadastrar posturas</a></li>   
+                        <li><a href="repo.html">Repositório</a></li>  
+                      </ul>
+        </nav>
+        <!-- <section class="busca">
+                <input type="text" id="search" >  <i class="fa fa-search" aria-hidden="true" onclick="pesquisar()"></i>
+
+        </section> -->
+    </section>
+    <div class="container">
+        <div class="caixa-login">
+        <!-- conteudo -->
+        <main class="conteudo" id="cad">
+                    <header>CADASTRO DE POSTURAS</header>
+
+                <form id="form_cadPostura" method="post" onsubmit="return adicionar()">                 
+                        <select id="tipo" name="tipo">
+                                <option value="">Tipo do asana</option>
+                                <option value="standing">De pé</option>
+                                <option value="seated">Sentado</option>
+                                <option value="core">Core</option>
+                                <option value="quadruped">Quatro apoios</option>
+                                <option value="backbends">Backbends</option>
+                                <option value="arm-balance">Equilíbrio nos braços</option>
+                                <option value="inversion">Inversões</option>
+                                <option value="prone">Pronadas</option>
+                                <option value="supine">Supinadas</option>
+                              </select> <br>
+                     <input placeholder="nome do asana em sânscrito" type="text" id="sanscrito" name="sanscrito"><br>
+                    <input placeholder="nome do asana em inglês" type="text" id="ingles" name="ingles"><br>
+                   <input placeholder=" nome do asana em português" type="text" id="portugues" name="portugues"><br>
+                   <input placeholder="endereço da imagem http://" type="text" id="imagem" name="imagem"><br>
+                                        
+             <button type="submit" id="cadastro">Cadastrar Asana</button>
+                </form> <br>
+<div class="aguardar">
+                <img src="aguarde.gif" class="wait" id="img_aguarde" style="display: none;">
+            </div>
+                
+                <div id="div_erro" style="background-color: sandybrown; color: maroon; display: none;">
+                    Erro no cadastro
+                </div>
+            
+            </div></div>
+        </main>
+
+        <!-- footer -->
+        <footer class="footer">
+            <h4>Yoga App</h4>
+        </footer>
+
+
+    </div>
+</body>
+</html>
+
+
+<script>
+
+function adicionar() {
+        aguardar();
+        var formulario = {
+            tipo: tipo.value,
+            sanscrito: sanscrito.value,
+            ingles: ingles.value,
+            portugues: portugues.value,
+            imagem: imagem.value
+        }
+
+        var formulario = new URLSearchParams(new FormData(form_cadPostura));
+        fetch("/repositorio/cadastrar", {
+            method: "POST",
+            body: formulario
+        }).then(function (response) {
+            
+            if (response.ok) {
+
+                window.location.href='repo.html';
+            } else {
+
+                console.log('Erro de cadastro!');
+                response.text().then(function (resposta) {
+                    div_erro.innerHTML = resposta;
+                });
+                finalizar_aguardar();
+            }
+        });
+
+        return false;
+    }
+
+    function aguardar() {
+        cadastro.disabled = true;
+        img_aguarde.style.display='block';
+        div_erro.style.display='none';
+    }
+
+    function finalizar_aguardar() {
+        cadastro.disabled = false;
+        img_aguarde.style.display='none';
+        div_erro.style.display='block';
+    }
+    </script>  

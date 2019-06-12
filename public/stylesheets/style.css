@@ -1,0 +1,241 @@
+body {
+  margin: 0;
+  padding: 0;
+  font: 14px sans-serif;
+  box-sizing:border-box;
+}
+
+a {
+color: paleturquoise;}
+
+.container {
+  max-width:100vw;
+  height:100vh;
+  
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+header {
+  border-bottom: 1px solid black ;
+  font-weight: 400;
+  font-size: 2em;
+}
+
+.caixa-login {
+    padding: 5vh;
+    border: 1px solid black;
+  }
+
+  .caixa-login p {
+    padding: 2vh;
+  }
+
+.wait {
+  max-width: 10vw;
+}
+
+::placeholder {
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+button {
+  margin: 2em;
+  padding: 2em;
+  text-transform: uppercase;
+  font-weight: 400;
+  border: 1px solid black ;
+  letter-spacing: 0.1em;
+  width: 50%;
+}
+
+input { 
+  /* margin: 1em;
+  padding: 1em; */
+  line-height: 5vh;
+  border: none;
+  width: 100%;
+  border-bottom: 1px black solid;
+}
+
+select { 
+  line-height: 5vh;
+  border: none;
+  width: 100%;
+  height: 5vh;
+  border-bottom: 1px black solid;
+}
+
+form {
+  padding: 2vh;
+}
+
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+}
+
+
+.box {
+flex: 1;
+  margin: 5px;
+  border: 1px gray solid;
+  padding: 1vw;
+  background: white;
+  align-items: center;
+  align-content: center;
+}
+
+h2 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1em;
+  color: black;
+  margin: 1vh;
+  font-weight: 200;
+  background: white;
+}
+
+h3 {
+  text-align: center;
+  color: gray;
+  font-size: 1em;    
+  background: white;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
+h4 {
+  padding: 1em;
+  margin: 1em;
+  letter-spacing: 1em;
+  text-transform: uppercase;
+
+}
+
+/* header */
+
+.navbar {
+  color: white;
+  text-transform: uppercase;
+  font-size: 1em;
+  background: black;
+  max-height: 10vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: flex-start;
+
+
+}
+
+.logo {
+  text-transform: uppercase;
+  padding: 2vh;
+  font-size: 1.5em;
+  align-self: flex-end;
+
+}
+
+
+/* menu */
+
+.menu ul {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1em;
+  list-style: none;
+  font-weight: 200;
+
+}
+
+.menu li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 1.3em;
+  letter-spacing: 0.1em;
+  justify-content: flex-end;
+
+}
+
+/* repositório */
+.registros {
+  max-width: 100vw;
+}
+
+.registros h1 {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 300;
+}
+
+.registros a {
+  text-decoration: none;
+  color: black;
+  background: yellowgreen;
+  padding: 3px;
+  margin: 1vh;
+  align-self: flex-end;
+}
+
+.foto {
+  min-height: 15vh;
+  max-height: 30vh;
+  border: none;
+}
+
+.imagem {
+  text-align: center;
+}
+
+.aguardar {
+  text-align: center;
+}
+
+/* menuzinho */
+
+.menuzinho {
+  padding: 2vh;
+}
+
+.menuzinho ul {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1em;
+  list-style: none;
+  font-weight: 200;
+  justify-content: center;
+
+}
+
+.menuzinho li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 1.3em;
+  letter-spacing: 0.1em;
+  background: black;
+  color: white;
+  border-radius: 10%;
+
+}
+
+.menuzinho li button {
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 1.3em;
+  letter-spacing: 0.1em;
+  background: black;
+  color: white;
+  border-radius: 10%;
+
+}
+
+/* footer */
+.footer {
+  height: 10vh;
+  width: 100vw;
+}
+

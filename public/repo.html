@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="stylesheets/style.css">
+
+    <title>YOGA APP - REPOSITÓRIO DE POSTURAS</title>
+
+</head>
+
+<body>
+        <section class="navbar flex">
+                <!-- bara de navegação -->
+                <div class="logo">Yoga App </div>
+                <nav class="menu">
+                        <ul>
+                               <li><a href="cadPosturas.html">Cadastrar posturas</a></li>   
+                                <li><a href="repo.html">Repositório</a></li>  
+                              </ul>
+                </nav>
+                <!-- <section class="busca">
+                        <input type="text" id="search" >  <i class="fa fa-search" aria-hidden="true" onclick="pesquisar()"></i>
+        
+                </section> -->
+            </section>
+     <!-- conteudo -->
+
+<div class="registros" id="reg">
+        <h1>Repositório de asanas</h1>
+        <div class="menuzinho">
+            <ul>
+                <li><a href="">All</a></li>
+                <li><a href="">Standing</a></li>
+                <li><a href="">Seated</a></li>
+                <li><a href="">Core</a></li>
+                <li><a href="">Quadruped</a></li>
+                <li><a href="">Backbends</a></li>
+                <li><a href="">Arm-balance</a></li>
+                <li><a href="">Inversion</a></li>
+                <li><a href="">Prone</a></li>
+                <li><a href="">Supine</a></li>  
+            </ul>
+        </div>
+
+<div class="flex" id='box_container'>
+
+                            </div>
+
+</div>
+<!-- footer -->
+<footer class="footer">
+    <h4>Yoga App</h4>
+</footer>
+
+
+</div>
+</body>
+</html>
+<script>
+
+
+
+function adicionarCard(tipo, ingles, portugues, sanscrito, imagem){
+        box_container.innerHTML += `
+        <div class="box">
+            <div class="imagem">
+                    <img src="${imagem}" alt="" class="foto">
+            </div>
+
+            <div class="card-infos">
+                <h2>${sanscrito}</h2>
+                <h3>${ingles}</h3>
+                <h3>${portugues}</h3>
+                <b onclick="selectTipo(${tipo})" id="${tipo}">${tipo}</b>
+            </div>
+
+        </div>
+        `
+    }
+
+    function selectTipo(tipo){
+        box_container.innerHTML += `
+        <div class="box">
+            <div class="imagem">
+                    <img src="${imagem}" alt="" class="foto">
+            </div>
+
+            <div class="card-infos">
+                <h2>${sanscrito}</h2>
+                <h3>${ingles}</h3>
+                <h3>${portugues}</h3>
+                <b id="${tipo}">${tipo}</b>
+            </div>
+
+        </div>
+        `
+    }
+
+    
+    function listar() {
+
+fetch("/repositorio/ultimas", {
+    method: "GET"
+}).then(function (response) {
+
+    if (response.ok) {
+
+        response.json().then(function (resposta) {
+            console.log(resposta)
+
+            for (cont = 0; cont < resposta.length ; cont++ ){
+                var postura = resposta[cont];
+                adicionarCard(postura.tipo, postura.ingles, postura.portugues, postura.sanscrito, postura.imagem)
+            }
+
+        });
+
+    }  
+});
+
+
+
+return false;
+}
+
+listar()
+
+</script>
